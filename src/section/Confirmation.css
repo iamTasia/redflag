@@ -1,0 +1,168 @@
+.success-container {
+  display: flex;
+  max-width: 1100px;
+  margin: 60px auto;
+  gap: 60px;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Left Section */
+.summary-section { flex: 1; }
+
+.success-badge {
+  width: 50px;
+  height: 50px;
+  background-color: #22c55e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.summary-section h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #1a1a1b;
+  margin-bottom: 20px;
+}
+
+.summary-section h1 span { color: #1a8a44; }
+
+.subtitle { color: #666; line-height: 1.6; margin-bottom: 40px; }
+
+.ref-box {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.ref-box label { font-size: 0.7rem; color: #999; letter-spacing: 1px; }
+
+.ref-box h3 { color: #1a8a44; margin: 5px 0; font-family: monospace; font-size: 1.3rem; }
+
+/* Buttons */
+.action-buttons { display: flex; gap: 15px; }
+
+.btn-dark { background: #1a1a1b; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; }
+
+.btn-outline { background: white; border: 1px solid #ddd; padding: 12px 20px; border-radius: 8px; color: #555; cursor: pointer; }
+
+/* Timeline / Right Section */
+.status-section { flex: 0.8; }
+
+.status-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid #f0f2f5;
+    max-width: 450px;
+}
+
+.card-title {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 20px; /* This prevents the text from touching the dot */
+}
+
+/* Column 1: The Circle and the Line */
+.stepper-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0; /* CRITICAL: Prevents dot from being squished */
+}
+
+.circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    z-index: 2;
+    border: 2px solid #e2e8f0;
+    background: white;
+}
+
+.circle.completed {
+    background-color: #22c55e;
+    border-color: #22c55e;
+    color: white;
+}
+
+.circle.active {
+    border-color: #22c55e;
+    position: relative;
+}
+
+/* Inner pulsing dot for active step */
+.circle.active::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: #22c55e;
+    border-radius: 50%;
+}
+
+.circle.upcoming {
+    color: #94a3b8;
+}
+
+.vertical-line {
+    width: 2px;
+    flex-grow: 1; /* This makes the line span exactly between circles */
+    background-color: #f1f5f9;
+    margin: 4px 0;
+}
+
+.vertical-line.hidden {
+    background: transparent;
+}
+
+/* Column 2: The Text */
+.content-col {
+    padding-bottom: 30px; /* Space between steps */
+}
+
+.content-col h4 {
+    margin: 0 0 4px 0;
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.content-col p {
+    margin: 0 0 6px 0;
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    color: #cbd5e1;
+    text-transform: uppercase;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #22c55e;
+}

@@ -1,0 +1,79 @@
+.guarantee {
+    max-width: 400px; /* Limits the card width like in the image */
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+/* The big top lock icon */
+.guarantee > img:first-child {
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.guarantee h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a1a1b;
+    margin-bottom: 12px;
+}
+
+.guarantee > p {
+    font-size: 0.95rem;
+    color: #5f6368;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+/* The List Features */
+.g-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.g-feature img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7; /* Makes icons look subtle like the screenshot */
+}
+
+.g-feature p {
+    font-size: 0.9rem;
+    color: #444;
+    margin: 0;
+}
+
+/* The Session ID Box */
+.session-div {
+    background-color: #f8f9fa; /* Light grey background */
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-top: 25px;
+}
+
+.session-div h1 {
+    font-size: 0.7rem;
+    color: #999;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.session-div p {
+    font-size: 1.1rem;
+    font-family: 'Courier New', Courier, monospace; /* Monospace for the code */
+    font-weight: 700;
+    color: #1a8a44; /* Green color from your screenshot */
+    margin: 0;
+}

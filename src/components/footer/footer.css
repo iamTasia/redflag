@@ -1,0 +1,66 @@
+.footer {
+    padding: 35px 10%;
+    background-color: #f7efefe2;
+    font-family: sans-serif; /* Clean look */
+    position: fixed;
+    bottom: 0px;
+    height: 90px;
+}
+
+/* The "How it works" small header */
+.footer > p:first-child {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #999;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.instructions-grid {
+    display: grid;
+    /* Creates the 3 equal columns */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.instruction {
+    display: flex;
+    align-items: flex-start; /* Aligns number to the top of the text */
+    gap: 15px;
+}
+
+.number {
+    background-color: #1a8a44; /* The green from your image */
+    color: white;
+    min-width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 4px; /* Tiny adjustment to align with the H1 */
+}
+
+/* Styling the headers and text */
+.instruction h1 {
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+    color: #111;
+}
+
+.instruction p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 850px) {
+    .instructions-grid {
+        grid-template-columns: 1fr; /* Stack them on top of each other */
+    }
+}
