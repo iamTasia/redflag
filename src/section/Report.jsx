@@ -5,9 +5,9 @@ import Report from '../components/report/report'
 const ReportForm = () => {
   return (
     <div>
-      <Header/>
-      <Guarantee/>
-      <Report/>
+        <Header/>
+        {/* <Guarantee/> */}
+        <Report/>
     </div>
   )
 }

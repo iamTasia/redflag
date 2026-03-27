@@ -18,7 +18,7 @@ const Footer = () => {
                 2
             </div>
             <h1><strong>Add Details & Location</strong></h1>
-            <p>Describe what u witnessed and where.Optionally attach photos with metadata removed</p>
+            <p>Describe what you witnessed and where. Optionally attach photos with metadata removed</p>
         </div>
         <div className='instruction'>
             <div className='number'>
