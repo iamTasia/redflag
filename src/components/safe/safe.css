@@ -99,10 +99,12 @@
   transition: background-color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
 }
 
-.report:hover {
-  background-color: var(--green-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 14px oklch(52% 0.155 145 / 0.3);
+@media (hover: hover) {
+  .report:hover {
+    background-color: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px oklch(52% 0.155 145 / 0.3);
+  }
 }
 
 .report:active {
@@ -123,10 +125,12 @@
   transition: background-color var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
 }
 
-.community:hover {
-  background-color: var(--border);
-  border-color: var(--border-strong);
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .community:hover {
+    background-color: var(--border);
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
 }
 
 .community:active {
@@ -154,8 +158,10 @@
   transition: color 300ms var(--ease-expo);
 }
 
-.stat-item:hover h1 {
-  color: var(--green);
+@media (hover: hover) {
+  .stat-item:hover h1 {
+    color: var(--green);
+  }
 }
 
 .stat-item h4 {
@@ -166,6 +172,27 @@
   transition: color 300ms var(--ease-expo);
 }
 
-.stat-item:hover h4 {
-  color: var(--text-2);
+@media (hover: hover) {
+  .stat-item:hover h4 {
+    color: var(--text-2);
+  }
+}
+
+@media (max-width: 600px) {
+  .safe-buttons {
+    flex-direction: column;
+  }
+
+  .report,
+  .community {
+    width: 100%;
+    flex: none;
+    min-height: 48px;
+  }
+
+  .safe-4 {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-4);
+  }
 }

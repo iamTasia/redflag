@@ -10,10 +10,12 @@
   animation: fadeUp 500ms var(--ease-expo) both;
 }
 
-.feed:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
-  border-color: var(--border-strong);
+@media (hover: hover) {
+  .feed:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+  }
 }
 
 /* Category tag */
@@ -48,12 +50,13 @@
   font-size: 0.8125rem;
 }
 
-/* Incident title */
+/* Incident title — room for absolute .time on larger screens */
 .feed > h1 {
   font-size: 1.0625rem;
   color: var(--text);
   margin: 4px 0 10px;
   line-height: 1.35;
+  padding-right: 5.5rem;
 }
 
 /* Incident description */
@@ -110,10 +113,12 @@
   user-select: none;
 }
 
-.participants:hover,
-.comments:hover,
-.flag:hover {
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .participants:hover,
+  .comments:hover,
+  .flag:hover {
+    transform: translateY(-1px);
+  }
 }
 
 .participants:active,
@@ -144,13 +149,15 @@
   font-weight: 500;
 }
 
-.participants:hover {
-  background-color: var(--green-border);
-}
+@media (hover: hover) {
+  .participants:hover {
+    background-color: var(--green-border);
+  }
 
-.comments:hover,
-.flag:hover {
-  background-color: var(--border);
+  .comments:hover,
+  .flag:hover {
+    background-color: var(--border);
+  }
 }
 
 /* Category tag entrance */
@@ -167,4 +174,36 @@
 .comment-area p {
   font-size: 0.8rem;
   margin: 0;
+}
+
+@media (max-width: 600px) {
+  .time {
+    position: static;
+    margin: 0 0 8px;
+    text-align: left;
+  }
+
+  .feed > h1 {
+    padding-right: 0;
+  }
+
+  .bottom-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-3);
+  }
+
+  .comment-area {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .participants,
+  .comments,
+  .flag {
+    min-height: 44px;
+    padding: 8px 14px;
+    box-sizing: border-box;
+  }
 }

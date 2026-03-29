@@ -8,7 +8,6 @@ const Conirmation = () => {
 
   const submittedCategories = state?.selectedCategories?.join(', ') || '—'
   const submittedDate = state?.date || '—'
-  const submittedSeverity = state?.severity || '—'
 
   return (
     <>

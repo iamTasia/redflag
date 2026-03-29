@@ -49,8 +49,10 @@
   white-space: nowrap;
 }
 
-.Top > button:hover {
-  background-color: var(--red-border);
+@media (hover: hover) {
+  .Top > button:hover {
+    background-color: var(--red-border);
+  }
 }
 
 /* Section label shared by all form sections */
@@ -77,6 +79,12 @@
   border: 1px solid var(--border);
   border-radius: var(--r-md);
   padding: 14px 10px;
+  min-height: 44px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   cursor: pointer;
   transition:
@@ -86,11 +94,13 @@
     box-shadow var(--t-fast);
 }
 
-.category:hover {
-  border-color: var(--green);
-  background-color: var(--green-surface);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+@media (hover: hover) {
+  .category:hover {
+    border-color: var(--green);
+    background-color: var(--green-surface);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
 }
 
 .category:active {
@@ -114,8 +124,10 @@
   transition: transform 250ms var(--ease-expo);
 }
 
-.category:hover img {
-  transform: scale(1.2) rotate(-5deg);
+@media (hover: hover) {
+  .category:hover img {
+    transform: scale(1.2) rotate(-5deg);
+  }
 }
 
 .category.selected img {
@@ -198,11 +210,13 @@ select:focus {
   transition: border-color var(--t-base), background-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
 }
 
-.evidence:hover {
-  border-color: var(--green);
-  background: var(--green-surface);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px oklch(52% 0.155 145 / 0.12);
+@media (hover: hover) {
+  .evidence:hover {
+    border-color: var(--green);
+    background: var(--green-surface);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px oklch(52% 0.155 145 / 0.12);
+  }
 }
 
 .evidence:active {
@@ -217,9 +231,11 @@ select:focus {
   transition: opacity var(--t-fast), transform 300ms var(--ease-expo);
 }
 
-.evidence:hover img {
-  opacity: 0.85;
-  transform: translateY(-3px) scale(1.1);
+@media (hover: hover) {
+  .evidence:hover img {
+    opacity: 0.85;
+    transform: translateY(-3px) scale(1.1);
+  }
 }
 
 .evidence .evidence-label {
@@ -311,15 +327,17 @@ input[type="file"] {
   transition: background-position 0ms;
 }
 
-.btn-primary:hover {
-  background-color: var(--green-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px oklch(52% 0.155 145 / 0.35);
-}
+@media (hover: hover) {
+  .btn-primary:hover {
+    background-color: var(--green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px oklch(52% 0.155 145 / 0.35);
+  }
 
-.btn-primary:hover::before {
-  background-position: -200% center;
-  transition: background-position 600ms var(--ease-quart);
+  .btn-primary:hover::before {
+    background-position: -200% center;
+    transition: background-position 600ms var(--ease-quart);
+  }
 }
 
 .btn-primary:active {
@@ -357,14 +375,22 @@ input[type="file"] {
   transition: background-color var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
 }
 
-.btn-secondary:hover {
-  background-color: var(--surface-2);
-  border-color: var(--border-strong);
-  transform: translateY(-1px);
+@media (hover: hover) {
+  .btn-secondary:hover {
+    background-color: var(--surface-2);
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+  }
 }
 
 .btn-secondary:active {
   transform: translateY(0);
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
@@ -373,13 +399,47 @@ input[type="file"] {
     padding: 20px;
   }
 
+  .Top {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-3);
+  }
+
+  .Top > button {
+    align-self: stretch;
+    width: 100%;
+    min-height: 44px;
+    white-space: normal;
+    text-align: center;
+  }
+
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category {
+    min-height: 48px;
+    padding: 12px 8px;
   }
 
   .data-grid,
   .incident-grid {
     grid-template-columns: 1fr;
+  }
+
+  input[type="date"],
+  input[type="text"],
+  input[type="time"],
+  select,
+  .description textarea {
+    font-size: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 48px;
+    justify-content: center;
+    font-size: 1rem;
   }
 
   .submit-area {

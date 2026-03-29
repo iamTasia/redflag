@@ -40,8 +40,18 @@
   border-color: var(--green);
 }
 
-.crime-categories button:hover:not(:first-child) {
-  background-color: var(--surface-2);
-  border-color: var(--border-strong);
-  color: var(--text);
+@media (hover: hover) {
+  .crime-categories button:hover:not(:first-child) {
+    background-color: var(--surface-2);
+    border-color: var(--border-strong);
+    color: var(--text);
+  }
+}
+
+@media (max-width: 600px) {
+  .crime-categories button {
+    min-height: 44px;
+    padding: 10px 18px;
+    font-size: 0.9375rem;
+  }
 }
