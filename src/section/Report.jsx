@@ -1,13 +1,13 @@
-import Guarantee from '../components/guarantee/guarantee'
 import Header from '../components/header/header'
 import Report from '../components/report/report'
 
 const ReportForm = () => {
   return (
     <div>
-        <Header/>
-        {/* <Guarantee/> */}
-        <Report/>
+      <Header />
+      <main className="report-page-body">
+        <Report />
+      </main>
     </div>
   )
 }

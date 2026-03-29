@@ -1,0 +1,156 @@
+/* =============================================
+   RedFlag Design System
+   Design Tokens + Global Styles
+   ============================================= */
+
+:root {
+  /* Brand Colors */
+  --red:          oklch(47% 0.20 25);
+  --red-dark:     oklch(38% 0.18 25);
+  --red-surface:  oklch(98.5% 0.02 25);
+  --red-border:   oklch(89%  0.07 25);
+
+  --green:        oklch(52% 0.155 145);
+  --green-dark:   oklch(43% 0.135 145);
+  --green-surface:oklch(97.5% 0.025 145);
+  --green-border: oklch(88%  0.07  145);
+
+  /* Neutral Palette — cool-tinted, never pure */
+  --surface:        oklch(97%   0.004 250);
+  --surface-2:      oklch(94%   0.005 250);
+  --card:           oklch(99.5% 0.002 250);
+  --border:         oklch(91%   0.006 250);
+  --border-strong:  oklch(82%   0.009 250);
+
+  --text:           oklch(17%  0.010 250);
+  --text-2:         oklch(40%  0.010 250);
+  --text-3:         oklch(58%  0.008 250);
+  --text-4:         oklch(72%  0.006 250);
+
+  /* Typography */
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body:    'Lexend', system-ui, sans-serif;
+
+  /* Spacing Scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* Border Radius */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   14px;
+  --r-xl:   20px;
+  --r-pill: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px oklch(0% 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px oklch(0% 0 0 / 0.07), 0 1px 2px oklch(0% 0 0 / 0.04);
+  --shadow-md: 0 4px 14px oklch(0% 0 0 / 0.07);
+  --shadow-lg: 0 8px 30px oklch(0% 0 0 / 0.09);
+
+  /* Transitions — exponential ease-out, no bounce */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast:   130ms var(--ease-out);
+  --t-base:   200ms var(--ease-out);
+  --t-slow:   350ms var(--ease-out);
+
+  /* Layout */
+  --header-h:  70px;
+  --page-max:  1280px;
+  --page-pad:  clamp(1.25rem, 5vw, 4rem);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface:       oklch(13.5% 0.008 250);
+    --surface-2:     oklch(18%   0.008 250);
+    --card:          oklch(21%   0.009 250);
+    --border:        oklch(28%   0.009 250);
+    --border-strong: oklch(36%   0.010 250);
+
+    --text:   oklch(94% 0.005 250);
+    --text-2: oklch(78% 0.007 250);
+    --text-3: oklch(60% 0.007 250);
+    --text-4: oklch(44% 0.006 250);
+
+    --red-surface:   oklch(19% 0.04 25);
+    --red-border:    oklch(29% 0.09 25);
+    --green-surface: oklch(17% 0.04 145);
+    --green-border:  oklch(27% 0.08 145);
+  }
+}
+
+/* =============================================
+   CSS Reset
+   ============================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: var(--surface);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font-family: var(--font-body);
+}
+
+/* Focus styles — never remove without replacing */
+:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+/* Reduced motion — respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

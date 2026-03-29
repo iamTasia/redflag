@@ -5,7 +5,7 @@ const Feedheader = () => {
   return (
     <div className="feed-header">
         <h1>Community Feed</h1>
-        <p>48 verified incients near Kumasi.</p>
+        <p>48 verified incidents near Kumasi.</p>
         <div className="crime-categories">
           <button>All</button>
           <button>High</button>

@@ -1,67 +1,63 @@
 .footer {
-    padding: 15px 10%;
-    background-color: #f7efefe2;
-    font-family: sans-serif; /* Clean look */
-    position: sticky;
-    bottom: 0px;
-    height: 90px;
-    margin-top: 50%;
+  padding: clamp(3rem, 6vw, 5rem) var(--page-pad);
+  background-color: var(--card);
+  border-top: 1px solid var(--border);
 }
 
-/* The "How it works" small header */
 .footer > p:first-child {
-    text-transform: uppercase;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: #999;
-    letter-spacing: 1.5px;
-    margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-4);
+  letter-spacing: 2px;
+  margin-bottom: 28px;
 }
 
 .instructions-grid {
-    display: grid;
-    /* Creates the 3 equal columns */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: var(--page-max);
 }
 
 .instruction {
-    display: flex;
-    align-items: flex-start; /* Aligns number to the top of the text */
-    gap: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .number {
-    background-color: #1a8a44; /* The green from your image */
-    color: white;
-    min-width: 28px;
-    height: 28px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-top: 4px; /* Tiny adjustment to align with the H1 */
+  background-color: var(--green);
+  color: white;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--r-sm);
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 3px;
 }
 
-/* Styling the headers and text */
 .instruction h1 {
-    font-size: 1.1rem;
-    margin: 0 0 8px 0;
-    color: #111;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
 }
 
 .instruction p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-    margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-3);
+  line-height: 1.55;
+  margin: 0;
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 850px) {
-    .instructions-grid {
-        grid-template-columns: 1fr; /* Stack them on top of each other */
-    }
+  .instructions-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 }

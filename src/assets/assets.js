@@ -28,6 +28,6 @@ export const assets = {
     fire,
     flag,
     comment,
-    redflagLogo
-
+    checkmark,
+    redflagLogo,
 }

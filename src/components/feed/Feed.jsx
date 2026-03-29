@@ -11,7 +11,7 @@ const Feed = () => {
       </div>
       <p className='time'>Today 14:22</p>
       <h1>Physical altercation near Kejetia Market bus stop</h1>
-      <p>Two men observe in a violent confrontation near the main bus stop. One appeared to have a blunt object.Bystanders dispersed quickly.No police visible at time of incident.</p>
+      <p>Two men observed in a violent confrontation near the main bus stop. One appeared to have a blunt object. Bystanders dispersed quickly. No police visible at time of incident.</p>
       <div className="bottom-grid">
         <div className="location">
             <img src={assets.location} alt="" />

@@ -1,0 +1,16 @@
+.landing-main {
+  padding-top: var(--header-h);
+}
+
+.landing-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - var(--header-h));
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .landing-hero {
+    grid-template-columns: 1fr;
+  }
+}

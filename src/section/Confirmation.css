@@ -1,14 +1,17 @@
 .success-container {
   display: flex;
   max-width: 1100px;
-  margin: 60px auto;
+  margin: 0 auto;
+  padding: calc(var(--header-h) + var(--sp-7)) var(--page-pad) var(--sp-9);
   gap: 60px;
-  padding: 20px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Left Section */
-.summary-section { flex: 1; }
+.summary-section {
+  flex: 1;
+  min-width: 0;
+}
 
 .success-badge {
   width: 50px;
@@ -18,151 +21,238 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  border-radius: var(--r-lg);
+  font-size: 1.4rem;
+  margin-bottom: 28px;
 }
 
 .summary-section h1 {
-  font-size: 3rem;
+  font-size: clamp(2.25rem, 5vw, 3rem);
   line-height: 1.1;
-  color: #1a1a1b;
+  color: var(--text);
   margin-bottom: 20px;
+  letter-spacing: -0.02em;
 }
 
-.summary-section h1 span { color: #1a8a44; }
+.summary-section h1 span {
+  color: var(--green);
+}
 
-.subtitle { color: #666; line-height: 1.6; margin-bottom: 40px; }
+.subtitle {
+  color: var(--text-3);
+  line-height: 1.65;
+  margin-bottom: 36px;
+  font-size: 1rem;
+}
 
+/* Reference box */
 .ref-box {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 30px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  border-radius: var(--r-lg);
+  margin-bottom: 28px;
 }
 
-.ref-box label { font-size: 0.7rem; color: #999; letter-spacing: 1px; }
+.ref-box label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
 
-.ref-box h3 { color: #1a8a44; margin: 5px 0; font-family: monospace; font-size: 1.3rem; }
+.ref-box h3 {
+  color: var(--green);
+  margin: 0 0 6px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+}
 
-/* Buttons */
-.action-buttons { display: flex; gap: 15px; }
+.ref-box p {
+  font-size: 0.8375rem;
+  color: var(--text-3);
+  margin: 0;
+}
 
-.btn-dark { background: #1a1a1b; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; }
+/* Action buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
-.btn-outline { background: white; border: 1px solid #ddd; padding: 12px 20px; border-radius: 8px; color: #555; cursor: pointer; }
+.btn-dark {
+  background: var(--text);
+  color: var(--card);
+  border: none;
+  padding: 11px 24px;
+  border-radius: var(--r-md);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
 
-/* Timeline / Right Section */
-.status-section { flex: 0.8; }
+.btn-dark:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
 
+.btn-outline {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 11px 20px;
+  border-radius: var(--r-md);
+  font-size: 0.9375rem;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background-color var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+
+.btn-outline:hover {
+  background-color: var(--surface-2);
+  border-color: var(--border-strong);
+  transform: translateY(-1px);
+}
+
+/* Right Section — Status Card */
 .status-card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 30px;
-    border: 1px solid #f0f2f5;
-    max-width: 450px;
+  flex: 0 0 400px;
+  background: var(--card);
+  border-radius: var(--r-xl);
+  padding: 28px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  align-self: flex-start;
+  position: sticky;
+  top: calc(var(--header-h) + var(--sp-5));
 }
 
 .card-title {
-    font-size: 0.75rem;
-    color: #94a3b8;
-    letter-spacing: 1px;
-    margin-bottom: 25px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--text-4);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
 }
 
 .timeline-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline-item {
-    display: flex;
-    gap: 20px; /* This prevents the text from touching the dot */
+  display: flex;
+  gap: 16px;
 }
 
-/* Column 1: The Circle and the Line */
 .stepper-col {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0; /* CRITICAL: Prevents dot from being squished */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    font-weight: 700;
-    z-index: 2;
-    border: 2px solid #e2e8f0;
-    background: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 700;
+  z-index: 2;
+  border: 2px solid var(--border);
+  background: var(--card);
+  color: var(--text-3);
 }
 
 .circle.completed {
-    background-color: #22c55e;
-    border-color: #22c55e;
-    color: white;
+  background-color: #22c55e;
+  border-color: #22c55e;
+  color: white;
 }
 
 .circle.active {
-    border-color: #22c55e;
-    position: relative;
+  border-color: #22c55e;
 }
 
-/* Inner pulsing dot for active step */
 .circle.active::after {
-    content: '';
-    width: 10px;
-    height: 10px;
-    background: #22c55e;
-    border-radius: 50%;
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
 }
 
 .circle.upcoming {
-    color: #94a3b8;
+  color: var(--text-4);
+  border-color: var(--border);
 }
 
 .vertical-line {
-    width: 2px;
-    flex-grow: 1; /* This makes the line span exactly between circles */
-    background-color: #f1f5f9;
-    margin: 4px 0;
+  width: 2px;
+  flex-grow: 1;
+  background-color: var(--border);
+  margin: 4px 0;
 }
 
 .vertical-line.hidden {
-    background: transparent;
+  background: transparent;
 }
 
-/* Column 2: The Text */
 .content-col {
-    padding-bottom: 30px; /* Space between steps */
+  padding-bottom: 28px;
+  min-width: 0;
 }
 
 .content-col h4 {
-    margin: 0 0 4px 0;
-    font-size: 1rem;
-    color: #1e293b;
-    font-weight: 700;
+  margin: 0 0 4px;
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 700;
 }
 
 .content-col p {
-    margin: 0 0 6px 0;
-    font-size: 0.9rem;
-    color: #64748b;
+  margin: 0 0 6px;
+  font-size: 0.875rem;
+  color: var(--text-3);
 }
 
 .timestamp {
-    font-size: 0.75rem;
-    color: #cbd5e1;
-    text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--text-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timestamp.pending {
+  color: var(--text-3);
 }
 
 .status-badge {
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: #22c55e;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #22c55e;
+  letter-spacing: 0.04em;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  .success-container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .status-card {
+    flex: unset;
+    width: 100%;
+    position: static;
+  }
 }

@@ -1,57 +1,59 @@
 .features {
-    display: flex;
-    flex-direction: column; /* Stacks the cards vertically */
-    gap: 16px;              /* Space between cards */
-    padding: 40px 10%;
-    background-color: rgb(237, 235, 235); /* Very light grey background */
-    width: 40%;
-    position: absolute;
-    right: 0px;
-    top: 70px;
-    padding-right: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+  background-color: var(--surface-2);
+  min-height: 100%;
 }
 
 .feature {
-    display: flex;
-    align-items: center;    /* Vertically centers the icon with the text */
-    gap: 20px;              /* Space between the icon and the text */
-    padding: 24px;
-    background-color: #d4d1d1;
-    border: 1px solid #e0e4e8;
-    border-radius: 12px;    /* The rounded corners from your image */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-xs);
+  transition: box-shadow var(--t-base), transform var(--t-base);
 }
 
-/* Styling the Icons */
+.feature:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
 .feature img {
-    width: 40px;            /* Adjust based on your asset size */
-    height: 40px;
-    object-fit: contain;
-    background-color: #f7f9fa; /* Optional: light background behind icon */
-    padding: 8px;
-    border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background-color: var(--surface-2);
+  padding: 8px;
+  border-radius: var(--r-md);
 }
 
-/* Typography to match the clean look */
 .feature h1 {
-    font-size: 1.1rem;
-    margin: 0 0 4px 0;      /* Tighten gap between title and description */
-    color: #1a1a1b;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text);
 }
 
 .feature p {
-    font-size: 0.95rem;
-    color: #5f6368;         /* Softer grey for the text */
-    line-height: 1.4;
-    margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-3);
+  line-height: 1.5;
+  margin: 0;
 }
 
-/* Responsive: Shrink padding on smaller screens */
 @media (max-width: 600px) {
-    .features {
-        padding: 20px 5%;
-    }
-    .feature {
-        padding: 16px;
-    }
+  .features {
+    padding: 20px var(--sp-4);
+  }
+
+  .feature {
+    padding: 16px;
+  }
 }
