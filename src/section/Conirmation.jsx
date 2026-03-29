@@ -1,7 +1,15 @@
 import Header from '../components/header/header'
 import './Confirmation.css'
+import { useNavigate, useLocation } from 'react-router'
 
 const Conirmation = () => {
+  const navigate = useNavigate()
+  const { state } = useLocation()
+
+  const submittedCategories = state?.selectedCategories?.join(', ') || '—'
+  const submittedDate = state?.date || '—'
+  const submittedSeverity = state?.severity || '—'
+
   return (
     <>
       <Header/>
@@ -22,71 +30,73 @@ const Conirmation = () => {
 
           <div className="action-buttons">
             <button className="btn-dark">Copy ID</button>
-            <button className="btn-outline">View Feed →</button>
-            <button className="btn-outline">Submit Another</button>
+            <button className="btn-outline" onClick={() => navigate('/feed')}>View Feed →</button>
+            <button className="btn-outline" onClick={() => navigate('/report')}>Submit Another</button>
           </div>
         </div>
 
-        {/* Right Side: Status & Reminders */}
+        {/* Right Side: Status Card */}
         <div className="status-card">
-  <h2 className="card-title">REPORT STATUS</h2>
-  
-  <div className="timeline-container">
-    
-    {/* Step 1 */}
-    <div className="timeline-item">
-      <div className="stepper-col">
-        <div className="circle completed">✓</div>
-        <div className="vertical-line"></div>
-      </div>
-      <div className="content-col">
-        <h4>Report Received</h4>
-        <p>Accepted and end-to-end encrypted.</p>
-        <span className="timestamp">TODAY - 14:32:07</span>
-      </div>
-    </div>
+          <h2 className="card-title">REPORT STATUS</h2>
 
-    {/* Step 2 */}
-    <div className="timeline-item">
-      <div className="stepper-col">
-        <div className="circle completed">✓</div>
-        <div className="vertical-line"></div>
-      </div>
-      <div className="content-col">
-        <h4>Metadata Stripped</h4>
-        <p>All personal metadata removed from files.</p>
-        <span className="timestamp">TODAY - 14:32:09</span>
-      </div>
-    </div>
+          <div className="timeline-container">
 
-    {/* Step 3 (Active) */}
-    <div className="timeline-item">
-      <div className="stepper-col">
-        <div className="circle active"></div>
-        <div className="vertical-line"></div>
-      </div>
-      <div className="content-col">
-        <h4>Automated Review</h4>
-        <p>Scanning content and verifying location data.</p>
-        <span className="status-badge">IN PROGRESS</span>
-      </div>
-    </div>
+            {/* Step 1 */}
+            <div className="timeline-item">
+              <div className="stepper-col">
+                <div className="circle completed">✓</div>
+                <div className="vertical-line"></div>
+              </div>
+              <div className="content-col">
+                <h4>Report Received</h4>
+                <p>Accepted and end-to-end encrypted.</p>
+                <span className="timestamp">
+                  {submittedDate !== '—' ? submittedDate.split('-').reverse().join('/') : 'TODAY'} · {submittedCategories}
+                </span>
+              </div>
+            </div>
 
-    {/* Step 4 (Upcoming) */}
-    <div className="timeline-item">
-      <div className="stepper-col">
-        <div className="circle upcoming">4</div>
-        <div className="vertical-line hidden"></div>
-      </div>
-      <div className="content-col">
-        <h4>Published to Feed</h4>
-        <p>Report will appear in the community feed.</p>
-        <span className="timestamp pending">PENDING - ~2-5 MIN</span>
-      </div>
-    </div>
+            {/* Step 2 */}
+            <div className="timeline-item">
+              <div className="stepper-col">
+                <div className="circle completed">✓</div>
+                <div className="vertical-line"></div>
+              </div>
+              <div className="content-col">
+                <h4>Metadata Stripped</h4>
+                <p>All personal metadata removed from files.</p>
+                <span className="timestamp">TODAY - 14:32:09</span>
+              </div>
+            </div>
 
-  </div>
-</div>
+            {/* Step 3 (Active) */}
+            <div className="timeline-item">
+              <div className="stepper-col">
+                <div className="circle active"></div>
+                <div className="vertical-line"></div>
+              </div>
+              <div className="content-col">
+                <h4>Automated Review</h4>
+                <p>Scanning content and verifying location data.</p>
+                <span className="status-badge">IN PROGRESS</span>
+              </div>
+            </div>
+
+            {/* Step 4 (Upcoming) */}
+            <div className="timeline-item">
+              <div className="stepper-col">
+                <div className="circle upcoming">4</div>
+                <div className="vertical-line hidden"></div>
+              </div>
+              <div className="content-col">
+                <h4>Published to Feed</h4>
+                <p>Report will appear in the community feed.</p>
+                <span className="timestamp pending">PENDING - ~2-5 MIN</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </>
   )
