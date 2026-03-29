@@ -9,8 +9,7 @@ const Header = () => {
       <div className='leftside'>
         <Link to ="/">
           <div className='logo'>
-            <img src={assets.siren}/>
-            <p>Red Alert</p>
+            <img src={assets.redflagLogo} />
           </div>
         </Link>
       </div>

@@ -1,7 +1,6 @@
 import alert from './alert.png'
 import attachment from './download (1).png'
 import location from './download.jpg'
-import siren from './download.png'
 import lock from './images.png'
 import knife from './knife.png'
 import drug from './drug.jpg'
@@ -13,12 +12,12 @@ import fire from './fire.png'
 import flag from './flag.png'
 import comment from './comment.png'
 import checkmark from './checkmark.png'
+import redflagLogo from './Redflag logo.png'
 
 export const assets = {
     alert,
     attachment,
     location,
-    siren,
     lock,
     knife,
     drug,
@@ -29,5 +28,6 @@ export const assets = {
     fire,
     flag,
     comment,
-    checkmark
+    redflagLogo
+
 }
