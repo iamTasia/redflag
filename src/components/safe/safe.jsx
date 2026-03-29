@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router'
 import './safe.css'
 
 const STATS = [
@@ -59,8 +60,8 @@ const Safe = () => {
         <p>Report crimes, suspicious activity, and unsafe situations in your community — completely anonymously, in under 3 minutes.</p>
       </div>
       <div className='safe-buttons'>
-        <button className='report'>Submit a Report</button>
-        <button className='community'>View Community Feed</button>
+        <Link to="/report" className='report'>Submit a Report</Link>
+        <Link to="/feed" className='community'>View Community Feed</Link>
       </div>
       <div className='safe-4'>
         {STATS.map((stat, i) => (

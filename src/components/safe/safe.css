@@ -88,6 +88,11 @@
 
 .report {
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
   height: 44px;
   border-radius: var(--r-md);
   color: white;
@@ -114,6 +119,11 @@
 
 .community {
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-sizing: border-box;
   height: 44px;
   color: var(--text);
   background-color: var(--surface-2);
