@@ -6,12 +6,14 @@
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-xs);
   position: relative;
-  transition: box-shadow var(--t-base), transform var(--t-base);
+  transition: box-shadow var(--t-base), transform var(--t-base), border-color var(--t-base);
+  animation: fadeUp 500ms var(--ease-expo) both;
 }
 
 .feed:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
 }
 
 /* Category tag */
@@ -103,8 +105,22 @@
   padding: 5px 10px;
   border-radius: var(--r-md);
   cursor: pointer;
-  transition: background-color var(--t-fast);
+  transition: background-color var(--t-fast), transform 120ms var(--ease-expo), box-shadow var(--t-fast);
   border: 1px solid transparent;
+  user-select: none;
+}
+
+.participants:hover,
+.comments:hover,
+.flag:hover {
+  transform: translateY(-1px);
+}
+
+.participants:active,
+.comments:active,
+.flag:active {
+  transform: scale(0.88);
+  box-shadow: none;
 }
 
 .participants {
@@ -135,6 +151,12 @@
 .comments:hover,
 .flag:hover {
   background-color: var(--border);
+}
+
+/* Category tag entrance */
+.crime {
+  animation: fadeIn 300ms var(--ease-expo) both;
+  animation-delay: 80ms;
 }
 
 .comment-area img {

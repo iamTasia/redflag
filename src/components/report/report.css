@@ -11,6 +11,8 @@
   border: 1px solid var(--border);
   border-radius: var(--r-xl);
   box-shadow: var(--shadow-md);
+  animation: fadeUp 550ms var(--ease-expo) both;
+  animation-delay: 80ms;
 }
 
 /* Header Section */
@@ -77,17 +79,29 @@
   padding: 14px 10px;
   text-align: center;
   cursor: pointer;
-  transition: border-color var(--t-fast), background-color var(--t-fast);
+  transition:
+    border-color var(--t-fast),
+    background-color var(--t-fast),
+    transform 150ms var(--ease-expo),
+    box-shadow var(--t-fast);
 }
 
 .category:hover {
   border-color: var(--green);
   background-color: var(--green-surface);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.category:active {
+  transform: scale(0.93);
+  box-shadow: none;
 }
 
 .category.selected {
   border-color: var(--green);
   background-color: var(--green-surface);
+  animation: pop 220ms var(--ease-expo);
 }
 
 .category.selected p {
@@ -97,6 +111,15 @@
 .category img {
   height: 24px;
   margin: 0 auto 8px;
+  transition: transform 250ms var(--ease-expo);
+}
+
+.category:hover img {
+  transform: scale(1.2) rotate(-5deg);
+}
+
+.category.selected img {
+  transform: scale(1.1);
 }
 
 .category p {
@@ -104,6 +127,7 @@
   font-weight: 500;
   color: var(--text-2);
   margin: 0;
+  transition: color var(--t-fast);
 }
 
 /* Form Grids */
@@ -128,13 +152,14 @@ select {
   outline: none;
   background: var(--surface);
   color: var(--text);
-  transition: border-color var(--t-fast), background-color var(--t-fast);
+  transition: border-color var(--t-fast), background-color var(--t-fast), box-shadow var(--t-fast);
 }
 
 input:focus,
 select:focus {
   border-color: var(--green);
   background: var(--card);
+  box-shadow: 0 0 0 3px oklch(52% 0.155 145 / 0.15);
 }
 
 /* Description textarea */
@@ -149,12 +174,13 @@ select:focus {
   color: var(--text);
   padding: 12px;
   resize: vertical;
-  transition: border-color var(--t-fast), background-color var(--t-fast);
+  transition: border-color var(--t-fast), background-color var(--t-fast), box-shadow var(--t-fast);
 }
 
 .description textarea:focus {
   border-color: var(--green);
   background: var(--card);
+  box-shadow: 0 0 0 3px oklch(52% 0.155 145 / 0.15);
 }
 
 /* Attachment Box */
@@ -169,12 +195,18 @@ select:focus {
   padding: 28px 24px;
   text-align: center;
   cursor: pointer;
-  transition: border-color var(--t-fast), background-color var(--t-fast);
+  transition: border-color var(--t-base), background-color var(--t-base), transform var(--t-base), box-shadow var(--t-base);
 }
 
 .evidence:hover {
   border-color: var(--green);
   background: var(--green-surface);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px oklch(52% 0.155 145 / 0.12);
+}
+
+.evidence:active {
+  transform: scale(0.99);
 }
 
 .evidence img {
@@ -182,6 +214,12 @@ select:focus {
   opacity: 0.5;
   width: 28px;
   height: 28px;
+  transition: opacity var(--t-fast), transform 300ms var(--ease-expo);
+}
+
+.evidence:hover img {
+  opacity: 0.85;
+  transform: translateY(-3px) scale(1.1);
 }
 
 .evidence .evidence-label {
@@ -213,6 +251,7 @@ input[type="file"] {
   color: var(--red);
   font-size: 0.85rem;
   margin: 12px 0 -8px;
+  animation: shake 420ms ease-out both;
 }
 
 /* Submit Area */
@@ -248,16 +287,62 @@ input[type="file"] {
   font-size: 0.9375rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color var(--t-fast), transform var(--t-fast);
+  transition: background-color var(--t-fast), transform var(--t-fast), box-shadow var(--t-fast);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Shimmer sweep */
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    oklch(100% 0 0 / 0.25) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  background-position: 200% center;
+  transition: background-position 0ms;
 }
 
 .btn-primary:hover {
   background-color: var(--green-dark);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px oklch(52% 0.155 145 / 0.35);
+}
+
+.btn-primary:hover::before {
+  background-position: -200% center;
+  transition: background-position 600ms var(--ease-quart);
 }
 
 .btn-primary:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+}
+
+.btn-primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Spinner inside button */
+.btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid oklch(100% 0 0 / 0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 600ms linear infinite;
+  flex-shrink: 0;
 }
 
 .btn-secondary {

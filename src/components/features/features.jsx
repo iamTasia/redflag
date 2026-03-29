@@ -1,10 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './features.css'
 import { assets } from '../../assets/assets'
 
 const Features = () => {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.12 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className='features'>
+    <div className={`features${visible ? ' visible' : ''}`} ref={ref}>
       <div className='feature'>
         <img src={assets.lock} alt="Lock icon" />
         <div>

@@ -1,5 +1,48 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './safe.css'
+
+const STATS = [
+  { target: 12480, suffix: '',    label: 'Reports Filed',    format: (n) => n.toLocaleString() },
+  { target: 94,    suffix: '%',   label: 'Anonymous Rate',   format: (n) => n + '%' },
+  { target: 3,     suffix: ' min',label: 'Avg. Submit Time', format: (n) => n + ' min' },
+]
+
+function useCountUp(target, duration = 1300, delay = 420) {
+  const [value, setValue] = useState(0)
+  const started = useRef(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (started.current) return
+      started.current = true
+
+      const startTime = performance.now()
+      const tick = (now) => {
+        const elapsed = now - startTime
+        const progress = Math.min(elapsed / duration, 1)
+        // ease-out quart
+        const eased = 1 - Math.pow(1 - progress, 4)
+        setValue(Math.round(eased * target))
+        if (progress < 1) requestAnimationFrame(tick)
+      }
+      requestAnimationFrame(tick)
+    }, delay)
+
+    return () => clearTimeout(timer)
+  }, [target, duration, delay])
+
+  return value
+}
+
+const StatItem = ({ stat, delayOffset }) => {
+  const count = useCountUp(stat.target, 1300, 420 + delayOffset)
+  return (
+    <div className='stat-item'>
+      <h1>{stat.format(count)}</h1>
+      <h4>{stat.label}</h4>
+    </div>
+  )
+}
 
 const Safe = () => {
   return (
@@ -20,18 +63,9 @@ const Safe = () => {
         <button className='community'>View Community Feed</button>
       </div>
       <div className='safe-4'>
-        <div className='stat-item'>
-          <h1>12,480</h1>
-          <h4>Reports Filed</h4>
-        </div>
-        <div className='stat-item'>
-          <h1>94%</h1>
-          <h4>Anonymous Rate</h4>
-        </div>
-        <div className='stat-item'>
-          <h1>3 min</h1>
-          <h4>Avg. Submit Time</h4>
-        </div>
+        {STATS.map((stat, i) => (
+          <StatItem key={stat.label} stat={stat} delayOffset={i * 80} />
+        ))}
       </div>
     </div>
   )

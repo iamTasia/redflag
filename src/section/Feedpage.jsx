@@ -15,10 +15,10 @@ const Feedpage = () => {
           <div className="feed-center">
             <Feedheader />
             <div className="feed-list">
-              <Feed />
-              <Feed />
-              <Feed />
-              <Feed />
+              <Feed index={0} />
+              <Feed index={1} />
+              <Feed index={2} />
+              <Feed index={3} />
             </div>
           </div>
           <aside className="feed-sidebar">

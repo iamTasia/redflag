@@ -44,6 +44,7 @@ const Report = () => {
   const [ongoing, setOngoing] = useState(defaultState.ongoing)
   const [fileName, setFileName] = useState(defaultState.fileName)
   const [error, setError] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const toggleCategory = (key) => {
     setSelectedCategories(prev =>
@@ -69,6 +70,7 @@ const Report = () => {
     setOngoing(defaultState.ongoing)
     setFileName(defaultState.fileName)
     setError('')
+    setIsSubmitting(false)
     if (fileInputRef.current) fileInputRef.current.value = ''
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -95,9 +97,13 @@ const Report = () => {
       return
     }
     setError('')
-    navigate('/confirmation', {
-      state: { selectedCategories, date, time, neighborhood, landmark, description, severity, ongoing },
-    })
+    setIsSubmitting(true)
+    // Brief delay for the submit animation before navigating
+    setTimeout(() => {
+      navigate('/confirmation', {
+        state: { selectedCategories, date, time, neighborhood, landmark, description, severity, ongoing },
+      })
+    }, 500)
   }
 
   return (
@@ -202,15 +208,24 @@ const Report = () => {
         </div>
       </div>
 
-      {error && <p className="form-error">{error}</p>}
+      {error && <p key={error} className="form-error">{error}</p>}
 
       <div className="submit-area">
         <div className="policy">
           <p>By submitting, you confirm this report is accurate to the best of your knowledge.</p>
         </div>
         <div className="submit-buttons">
-          <button className="btn-secondary" onClick={resetForm}>Start New Report</button>
-          <button className="btn-primary" onClick={handleSubmit}>Submit Anonymously</button>
+          <button className="btn-secondary" onClick={resetForm} disabled={isSubmitting}>Start New Report</button>
+          <button className="btn-primary" onClick={handleSubmit} disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <span className="btn-spinner" />
+                Submitting…
+              </>
+            ) : (
+              'Submit Anonymously'
+            )}
+          </button>
         </div>
       </div>
     </div>

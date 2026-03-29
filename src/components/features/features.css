@@ -7,6 +7,7 @@
   min-height: 100%;
 }
 
+/* Cards start invisible; transition in when .visible is added */
 .feature {
   display: flex;
   align-items: center;
@@ -16,12 +17,24 @@
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   box-shadow: var(--shadow-xs);
-  transition: box-shadow var(--t-base), transform var(--t-base);
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity    500ms var(--ease-expo),
+    transform  500ms var(--ease-expo),
+    box-shadow var(--t-base),
+    border-color var(--t-base);
 }
 
+.features.visible .feature:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.features.visible .feature:nth-child(2) { opacity: 1; transform: none; transition-delay: 100ms; }
+.features.visible .feature:nth-child(3) { opacity: 1; transform: none; transition-delay: 200ms; }
+.features.visible .feature:nth-child(4) { opacity: 1; transform: none; transition-delay: 300ms; }
+
 .feature:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
 }
 
 .feature img {
@@ -32,6 +45,12 @@
   background-color: var(--surface-2);
   padding: 8px;
   border-radius: var(--r-md);
+  transition: transform 350ms var(--ease-expo), background-color var(--t-fast);
+}
+
+.feature:hover img {
+  transform: rotate(14deg) scale(1.18);
+  background-color: var(--border);
 }
 
 .feature h1 {

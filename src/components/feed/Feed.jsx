@@ -2,9 +2,9 @@ import React from 'react'
 import { assets } from '../../assets/assets'
 import './Feed.css'
 
-const Feed = () => {
+const Feed = ({ index = 0 }) => {
   return (
-    <div className='feed'>
+    <div className='feed' style={{ animationDelay: `${index * 110}ms` }}>
       <div className="crime">
         <img src={assets.knife} alt="" />
         <h1>Assault</h1>

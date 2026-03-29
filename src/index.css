@@ -56,7 +56,9 @@
   --shadow-lg: 0 8px 30px oklch(0% 0 0 / 0.09);
 
   /* Transitions — exponential ease-out, no bounce */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-expo:  cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --t-fast:   130ms var(--ease-out);
   --t-base:   200ms var(--ease-out);
   --t-slow:   350ms var(--ease-out);
@@ -143,14 +145,61 @@ button, input, select, textarea {
   border-radius: var(--r-sm);
 }
 
-/* Reduced motion — respect user preference */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* =============================================
+   Keyframe Library
+   ============================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  from { background-position: 200% center; }
+  to   { background-position: -200% center; }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60%  { transform: translateX(-7px); }
+  40%, 80%  { transform: translateX(7px); }
+}
+
+@keyframes pulseRing {
+  0%   { transform: scale(1);   opacity: 0.75; }
+  100% { transform: scale(1.9); opacity: 0; }
+}
+
+@keyframes pop {
+  0%,  100% { transform: scale(1); }
+  50%       { transform: scale(1.1); }
+}
+
+@keyframes refGlow {
+  from { box-shadow: 0 0 0 0 oklch(52% 0.155 145 / 0); }
+  to   { box-shadow: 0 0 0 6px oklch(52% 0.155 145 / 0.18); }
+}
+
+@keyframes progressBar {
+  from { width: 0%; }
+  to   { width: 60%; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }

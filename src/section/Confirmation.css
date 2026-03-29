@@ -13,6 +13,7 @@
   min-width: 0;
 }
 
+/* Staggered entrance for summary section elements */
 .success-badge {
   width: 50px;
   height: 50px;
@@ -24,6 +25,8 @@
   border-radius: var(--r-lg);
   font-size: 1.4rem;
   margin-bottom: 28px;
+  animation: scaleIn 600ms var(--ease-expo) both;
+  animation-delay: 100ms;
 }
 
 .summary-section h1 {
@@ -32,6 +35,8 @@
   color: var(--text);
   margin-bottom: 20px;
   letter-spacing: -0.02em;
+  animation: fadeUp 600ms var(--ease-expo) both;
+  animation-delay: 200ms;
 }
 
 .summary-section h1 span {
@@ -43,6 +48,8 @@
   line-height: 1.65;
   margin-bottom: 36px;
   font-size: 1rem;
+  animation: fadeUp 600ms var(--ease-expo) both;
+  animation-delay: 280ms;
 }
 
 /* Reference box */
@@ -52,6 +59,8 @@
   padding: 20px 24px;
   border-radius: var(--r-lg);
   margin-bottom: 28px;
+  animation: fadeUp 600ms var(--ease-expo) both, refGlow 2.5s ease-in-out 1400ms infinite alternate;
+  animation-delay: 360ms, 1400ms;
 }
 
 .ref-box label {
@@ -83,6 +92,8 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  animation: fadeUp 600ms var(--ease-expo) both;
+  animation-delay: 440ms;
 }
 
 .btn-dark {
@@ -102,6 +113,10 @@
   transform: translateY(-1px);
 }
 
+.btn-dark:active {
+  transform: scale(0.97);
+}
+
 .btn-outline {
   background: var(--card);
   border: 1px solid var(--border);
@@ -119,6 +134,10 @@
   transform: translateY(-1px);
 }
 
+.btn-outline:active {
+  transform: scale(0.97);
+}
+
 /* Right Section — Status Card */
 .status-card {
   flex: 0 0 400px;
@@ -130,6 +149,8 @@
   align-self: flex-start;
   position: sticky;
   top: calc(var(--header-h) + var(--sp-5));
+  animation: fadeUp 600ms var(--ease-expo) both;
+  animation-delay: 150ms;
 }
 
 .card-title {
@@ -146,10 +167,17 @@
   flex-direction: column;
 }
 
+/* Timeline item entrance stagger */
 .timeline-item {
   display: flex;
   gap: 16px;
+  animation: fadeUp 450ms var(--ease-expo) both;
 }
+
+.timeline-item:nth-child(1) { animation-delay: 300ms; }
+.timeline-item:nth-child(2) { animation-delay: 450ms; }
+.timeline-item:nth-child(3) { animation-delay: 600ms; }
+.timeline-item:nth-child(4) { animation-delay: 750ms; }
 
 .stepper-col {
   display: flex;
@@ -171,16 +199,32 @@
   border: 2px solid var(--border);
   background: var(--card);
   color: var(--text-3);
+  transition: transform 200ms var(--ease-expo), border-color 200ms;
 }
 
 .circle.completed {
   background-color: #22c55e;
   border-color: #22c55e;
   color: white;
+  animation: scaleIn 350ms var(--ease-expo) both;
 }
 
+.timeline-item:nth-child(1) .circle.completed { animation-delay: 400ms; }
+.timeline-item:nth-child(2) .circle.completed { animation-delay: 550ms; }
+
+/* Active circle with pulsing ring */
 .circle.active {
   border-color: #22c55e;
+  position: relative;
+}
+
+.circle.active::before {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  animation: pulseRing 1.6s ease-out infinite;
 }
 
 .circle.active::after {
@@ -241,6 +285,8 @@
   font-weight: 800;
   color: #22c55e;
   letter-spacing: 0.04em;
+  animation: fadeIn 400ms var(--ease-expo) both;
+  animation-delay: 700ms;
 }
 
 /* Responsive */
