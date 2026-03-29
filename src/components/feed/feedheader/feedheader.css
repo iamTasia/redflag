@@ -1,10 +1,10 @@
-.feed-header {
+ .feed-header {
     padding: 20px 0;
     font-family: sans-serif;
     position:absolute;
     top: 60px;
     left: 250px;
-}
+} 
 
 .feed-header h1 {
     font-size: 1.8rem;

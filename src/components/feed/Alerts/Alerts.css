@@ -7,7 +7,7 @@
     position: absolute;
     right: 300px;
     top: 430px;
-}
+} 
 
 .Rside-card {
     background: #fff;
@@ -25,14 +25,14 @@
     border-bottom: 1px solid #f0f2f5;
 }
 /* Stats Row styling */
-.stat-row {
+,.stat-row {
     display: flex;
     justify-content: space-between;
     padding: 12px 20px;
     border-bottom: 1px solid #f8f9fa;
     font-size: 0.9rem;
     color: #666;
-}
+} 
 
 .stat-row strong {
     color: #1a1a1b;
