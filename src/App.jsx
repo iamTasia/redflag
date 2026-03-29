@@ -4,6 +4,8 @@ import Landing from './section/Landing'
 import Report from './section/Report'
 import Feedpage from './section/Feedpage'
 import Conirmation from './section/Conirmation'
+import Safety from './section/Safety'
+import Emergency from './section/Emergency'
 
 function App() {
   
@@ -15,6 +17,8 @@ function App() {
         <Route path='/report' element={<Report/>}/>
         <Route path='/feed' element={<Feedpage/>}/>
         <Route path='/confirmation' element={<Conirmation/>}/>
+        <Route path='/safety' element={<Safety/>}/>
+        <Route path='/emergency' element={<Emergency/>}/>
       </Routes>
     </>
   )

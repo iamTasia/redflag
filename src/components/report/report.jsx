@@ -2,10 +2,12 @@ import React from 'react'
 import './report.css'
 import { assets } from '../../assets/assets'
 import { useRef, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 const Report = () => {
   const fileInputRef = useRef(null);
   const [fileName, setFileName] = useState("")
+  const navigate = useNavigate();
 
   const handleClick = () => {
     fileInputRef.current.click();
@@ -16,6 +18,10 @@ const Report = () => {
     if (selectedFile) {
       setFileName(selectedFile.name);
     }
+  };
+
+  const handleSubmit = () => {
+    navigate('/confirmation');
   };
 
   return (
@@ -124,7 +130,7 @@ const Report = () => {
         <div className="policy">
           <p>By submitting, you confirm this report is accurate to the best of your knowledge.</p>
         </div>
-        <button>Submit Anonymously</button>
+        <button onClick={handleSubmit}>Submit Anonymously</button>
       </div>
     </div>
   )

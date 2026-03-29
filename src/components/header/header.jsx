@@ -14,7 +14,8 @@ const Header = () => {
       <nav className='middle'>
         <div className='sections'>
           <NavLink to="/feed" className='nav-link'>Community Feed</NavLink>
-          <NavLink to="/confirmation" className='nav-link'>Confirmation</NavLink>
+          <NavLink to="/safety" className='nav-link'>Safety Guidelines</NavLink>
+          <NavLink to="/emergency" className='nav-link'>Emergency Contacts</NavLink>
         </div>
       </nav>
       <div className='right'>
